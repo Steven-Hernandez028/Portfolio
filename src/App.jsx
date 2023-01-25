@@ -1,25 +1,43 @@
 import { Canvas } from "@react-three/fiber";
-import { Stats, OrbitControls } from "@react-three/drei";
-import { Stars } from "./components/Stars";
-import { HeaderTextName } from "./components/HeaderTextName";
+import { Stats, PresentationControls } from "@react-three/drei";
+import { Stars } from "./components/background/Stars";
+import { Lights } from "./components/ilumination/Lights";
+import { Home } from "./scenes/home";
+
+
 import "./App.css";
-//camera={{ position: [0, 0, .2] }}
+
+
+
 export const App = () => {
+
+
   return (
-    <Canvas className="canvas"  camera={{ position: [0,-2, 0,10] }} >
-      <Stars />
-      <HeaderTextName />
-      <OrbitControls
-        enableZoom={false}
-        enablePan={false}
-        minPolarAngle={1.5}
-        maxPolarAngle={1.57}
-        minAzimuthAngle={-Math.PI / 5}
-        maxAzimuthAngle={Math.PI / 5}
-      />
-      <gridHelper/>
-      <Stats />
-      
+    <Canvas
+      className="canvas"
+      flat
+      dpr={[1, 2]}
+     linear camera={{ fov: 15, position: [0, 0, 6] }}
+    >
+      <Lights/>
+  
+
+      <PresentationControls
+        snap
+        global
+        zoom={1}
+        polar={[-.2, .2]}
+        azimuth={[-.2,.2]}
+      >
+        <Home/>
+        
+      </PresentationControls>
+
+      <Stars  />
+
+      <gridHelper />
+      <Stats /> 
+
     </Canvas>
   );
 };
