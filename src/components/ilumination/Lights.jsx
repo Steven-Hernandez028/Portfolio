@@ -16,14 +16,14 @@ export const Lights = () => {
   return (
     <group  ref={ref}>
 
-      <ambientLight   intensity={1} />
+      <ambientLight    intensity={1} />
       <pointLight  ref={ref} position={[1,1, 4]} intensity={10} />
       <pointLight   position={[0, 1, 4]} intensity={10} />
 
       <pointLight   position={[-1.6, 1, 4]} intensity={3} />
-      <pointLight    position={[.1, -.5, 4]} intensity={5} />
       <pointLight    position={[.9, -.3, 4]} intensity={5} />
       <pointLight    position={[-.4, -.3, 4]} intensity={2} />
+
 
     </group>
 
